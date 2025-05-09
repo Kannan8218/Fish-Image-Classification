@@ -126,6 +126,3 @@ Permission is hereby granted, free of charge, to any person obtaining a copy...
 
 ---
 
-## 📬 Contact
-
-For questions or collaborations, reach out at [your-email@example.com].
