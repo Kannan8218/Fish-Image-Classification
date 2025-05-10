@@ -23,7 +23,6 @@ conf_matrix_files = [
 ]
 
 # ------------------ UI Config ------------------
-
 st.set_page_config(page_title="🐟 Fish Classifier Dashboard", layout="centered")
 
 st.markdown("""
@@ -77,6 +76,11 @@ else:
 if os.path.exists(metrics_path):
     st.markdown("<div class='section-title'>📊 Model Comparison Metrics</div>", unsafe_allow_html=True)
     metrics_df = pd.read_csv(metrics_path)
+
+    # Display Best Model Info
+    best_row = metrics_df.loc[metrics_df['Accuracy'].idxmax()]
+    st.success(f"🏆 Best Model: **{best_row['Model']}**, Accuracy(%): **{best_row['Accuracy'] * 100:.2f}%**")
+
     melted_df = pd.melt(metrics_df, id_vars='Model', var_name='Metric', value_name='Score')
 
     plt.figure(figsize=(10, 6))
